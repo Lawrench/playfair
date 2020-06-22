@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 
+
 export class KeyInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
-    this.handleChange = this.handleChange.bind(this);
+  onFieldChange(event) {
+    // for a regular input field, read field name and value from the event
+    const fieldName = event.target.name;
+    const fieldValue = event.target.value;
+    this.props.onChange(fieldName, fieldValue);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
 
   render() {
     return (
       <label className="block">
         Cipher Key:&nbsp;
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
+        <input type="text"
+               name={"cipherKey"}
+               value={this.props.value}
+               onChange={this.onFieldChange.bind(this)}
+        />
       </label>
     );
   }

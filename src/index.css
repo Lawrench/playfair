@@ -36,6 +36,7 @@ code {
 .top {
 	width: 100%;
 	float: top;
+	margin: 2em;
 }
 
 .info-area {
@@ -54,6 +55,15 @@ code {
 }
 
 #key-table td {
-    width: 2em;
-    border: 1px solid lightslategray;
+	width: 2em;
+	height: 2em;
+	border: 1px solid lightslategray;
+}
+
+#cipher {
+	width: 13em;
+	height: auto;
+	border: 1px dashed lightslategray;
+	font-family: Book Antiqua,Palatino,Palatino Linotype,Palatino LT STD,Georgia,serif;
+	font-size: larger;
 }

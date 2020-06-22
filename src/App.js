@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Title />
       <Info />
-      <Demo />
+      <Demo cipher={'blah'} msg={''}/>
     </div>
   );
 }
