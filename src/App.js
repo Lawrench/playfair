@@ -1,8 +1,8 @@
 import './App.css';
-import React        from 'react';
-import { Title }    from "./components/Title";
-import { Info }     from "./components/Info";
-import { Demo }     from "./components/Demo";
+import React from 'react';
+import { Title } from "./components/Title";
+import Info from "./components/Info";
+import Demo from "./components/Demo";
 
 function App() {
   return (
