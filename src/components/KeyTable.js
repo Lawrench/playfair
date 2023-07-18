@@ -1,21 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class KeyTable extends Component {
-  constructor(props) {
-    super(props);
-    this.baseIdName = "keyTable-";
-  }
+const KeyTable = ({ cipherKey, sort, buildTable }) => {
+  const rows = sort(cipherKey);
+  return (
+    <div>
+      <table id="key-table" className="block">
+        <tbody>
+        {buildTable(rows)}
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-  render() {
-    const rows = this.props.sort(this.props.cipherKey);
-    return (
-      <div>
-        <table id="key-table" className="block">
-          <tbody>
-          {this.props.buildTable(rows)}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-}
+export default KeyTable;

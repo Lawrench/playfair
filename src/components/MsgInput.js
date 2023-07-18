@@ -1,25 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class MsgInput extends Component {
-  onFieldChange(event) {
-    // for a regular input field, read field name and value from the event
+const MsgInput = ({ value, onChange, handleStateChange }) => {
+  const onFieldChange = (event) => {
     const fieldName = event.target.name;
     const fieldValue = event.target.value;
-    this.props.onChange(fieldName, fieldValue);
-    this.props.handleStateChange(fieldName, fieldValue);
-  }
+    onChange(fieldName, fieldValue);
+    handleStateChange(fieldName, fieldValue);
+  };
 
-  render() {
-    return (
-      <label className="block">
-        Message:&nbsp;
-        <input
-          type="textarea"
-          name={"message"}
-          value={this.props.value}
-          onChange={this.onFieldChange.bind(this)}
-        />
-      </label>
-    );
-  }
-}
+  return (
+    <label className="block">
+      Message:&nbsp;
+      <input
+        type="textarea"
+        name="message"
+        value={value}
+        onChange={onFieldChange}
+      />
+    </label>
+  );
+};
+
+export default MsgInput;

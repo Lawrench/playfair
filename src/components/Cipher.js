@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Cipher extends Component {
-  render() {
-    return (
-      <div id="cipher">Cipher: {this.props.message}</div>
-    );
-  }
-}
+const Cipher = ({ message }) => (
+  <div id="cipher">Cipher: {message}</div>
+);
+
+export default Cipher;
