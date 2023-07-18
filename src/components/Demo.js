@@ -25,16 +25,18 @@ export class Demo extends Component {
     this.buildTable = this.buildTable.bind(this);
   }
 
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(this.props.rows) !== JSON.stringify(prevProps.rows)) {
+      this.setState({ tableData: this.props.rows });
+    }
+  }
+
   /**
    * Start building the table
    * @param {[]} rows
    * @returns {*[]}
    */
   buildTable = (rows) => {
-    if (JSON.stringify(this.state.tableData) !== JSON.stringify(rows)) {
-      this.setState({ tableData: rows });
-    }
-
     return [...Array(5)].map((e, y) =>
       <tr className="keyTable-row" key={y} id={this.baseIdName + 'Y' + y}>
         {this.buildCells(y, rows[y])}
@@ -220,4 +222,3 @@ export class Demo extends Component {
     );
   }
 }
-
