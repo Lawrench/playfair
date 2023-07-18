@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="603a19a7-46e1-4f84-94cd-6ec5bbc4704d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/utils/cipherUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Cipher.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cipher.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Demo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Demo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/KeyInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/KeyInput.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +64,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -81,7 +88,7 @@
       <workItem from="1592764030635" duration="23900000" />
       <workItem from="1664320661423" duration="622000" />
       <workItem from="1689698387826" duration="98000" />
-      <workItem from="1689698603738" duration="962000" />
+      <workItem from="1689698603738" duration="6513000" />
     </task>
     <servers />
   </component>
