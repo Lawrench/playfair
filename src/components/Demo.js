@@ -50,8 +50,6 @@ const Demo = () => {
     updateCipher();
   });
 
-
-
   const handleStateChange = (name, value) => {
     if (name === 'cipherKey') {
       setCipherKey(value);
@@ -121,8 +119,6 @@ const Demo = () => {
     }
     return rows;
   };
-
-
 
   return (
     <div id='demo' className="inline-block float-left">
