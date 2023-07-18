@@ -7,7 +7,8 @@ import {
   findCoordinates,
   handleRepeatingAndSingleLetters,
   handleLettersOnSameRow,
-  handleLettersOnSameColumn, handleLettersNotOnSameRowOrColumn
+  handleLettersOnSameColumn,
+  handleLettersNotOnSameRowOrColumn,
 } from '../utils/cipherUtils';
 
 const Demo = () => {
@@ -22,9 +23,34 @@ const Demo = () => {
     ['v', 'w', 'x', 'y', 'z'],
   ]);
 
+  const updateCipher = () => {
+    const processedMessage = message.toLowerCase().replace(/[^a-z]+/g, '').replace(/[j]+/g, 'i');
+    let newCipher = [];
+    for (let i = 0; i < processedMessage.length; i += 2) {
+      let digram = processedMessage.substring(i, i + 2);
+      digram = handleRepeatingAndSingleLetters(digram);
+
+      let { x: x1, y: y1 } = findCoordinates(digram[0], tableData);
+      let { x: x2, y: y2 } = findCoordinates(digram[1], tableData);
+
+      if (y1 === y2) {
+        ({ x1, y1, x2, y2, digram } = handleLettersOnSameRow(digram, tableData, x1, y1, x2, y2));
+      } else if (x1 === x2) {
+        ({ x1, y1, x2, y2, digram } = handleLettersOnSameColumn(digram, tableData, x1, y1, x2, y2));
+      } else {
+        ({ x1, y1, x2, y2, digram } = handleLettersNotOnSameRowOrColumn(digram, tableData, x1, y1, x2, y2));
+      }
+      newCipher.push(`${tableData[y1][x1]}${tableData[y2][x2]}`);
+    }
+
+    setCipher(newCipher.join(' ').toUpperCase());
+  };
+
   useEffect(() => {
     updateCipher();
-  }, [message, cipherKey]);
+  });
+
+
 
   const handleStateChange = (name, value) => {
     if (name === 'cipherKey') {
@@ -96,28 +122,6 @@ const Demo = () => {
     return rows;
   };
 
-  const updateCipher = () => {
-    const processedMessage = message.toLowerCase().replace(/[^a-z]+/g, '').replace(/[j]+/g, 'i');
-    let newCipher = [];
-    for (let i = 0; i < processedMessage.length; i += 2) {
-      let digram = processedMessage.substring(i, i + 2);
-      digram = handleRepeatingAndSingleLetters(digram);
-
-      let { x: x1, y: y1 } = findCoordinates(digram[0], tableData);
-      let { x: x2, y: y2 } = findCoordinates(digram[1], tableData);
-
-      if (y1 === y2) {
-        ({ x1, y1, x2, y2, digram } = handleLettersOnSameRow(digram, tableData, x1, y1, x2, y2));
-      } else if (x1 === x2) {
-        ({ x1, y1, x2, y2, digram } = handleLettersOnSameColumn(digram, tableData, x1, y1, x2, y2));
-      } else {
-        ({ x1, y1, x2, y2, digram } = handleLettersNotOnSameRowOrColumn(digram, tableData, x1, y1, x2, y2));
-      }
-      newCipher.push(`${tableData[y1][x1]}${tableData[y2][x2]}`);
-    }
-
-    setCipher(newCipher.join(' ').toUpperCase());
-  };
 
 
   return (
