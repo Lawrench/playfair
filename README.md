@@ -1,5 +1,7 @@
 # PlayFair Cipher Demo
 
+**NOTE: This demo is not maintained or updated.** 
+
 This app demonstrates the Playfair cipher. 
 
 To run: `docker compose up` and then browse to localhost
